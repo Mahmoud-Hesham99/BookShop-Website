@@ -65,7 +65,7 @@ app.post('/register', function(req, res) {
     fs.writeFileSync("users.json", JSON.stringify(usersdata, null, 2));
 });
 
-var userindex;
+
 app.post('/login', function(req, res) {
     var found = false;
     var n = req.body.username;
@@ -77,7 +77,6 @@ app.post('/login', function(req, res) {
             if (usersdata.users[i].username == n && usersdata.users[i].password == p) {
                 found = true;
                 req.session.userindex = i;
-                userindex = i;
             }
         }
         if (found) {
